@@ -1,0 +1,192 @@
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-8">
+			<form ng-submit="submit()" ng-controller="createUserController">
+				<div class="card">
+					<div class="card-header" data-background-color="green">
+						<h4 class="title">Create User Profile</h4>
+						<p class="category">General Information</p>
+					</div>
+					<div class="card-content">
+						<div class="row">
+							<div class="col-md-5">
+								<div class="form-group label-floating">
+									<label class="control-label">Name</label> <input type="text"
+										ng-model="user.userProfile.name" class="form-control">
+								</div>
+
+							</div>
+							<div class="col-md-3">
+								<div class="form-group label-floating">
+									<label class="control-label">Family Name</label> <input
+										type="text" class="form-control"
+										ng-model="user.userProfile.familyName">
+								</div>
+
+							</div>
+							<div class="col-md-4">
+								<div class="form-group label-floating">
+									<label class="control-label">birthdate</label> <input
+										type="text" ng-model="user.userProfile.birthdate"
+										class="form-control">
+								</div>
+
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-5">
+								<div class="form-group label-floating">
+									<label class="control-label">Username</label> <input
+										type="text" class="form-control" ng-model="user.username">
+								</div>
+							</div>
+							<div class="col-md-5">
+								<div class="form-group label-floating">
+									<label class="control-label">Password</label> <input
+										type="password" class="form-control" ng-model="user.password">
+								</div>
+							</div>
+							<div class="col-md-3">
+								<div class="form-group label-floating">
+									<label class="control-label">Email</label> <input type="email"
+										class="form-control" ng-model="user.userProfile.email">
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="form-group label-floating">
+									<label class="control-label">Gender</label> <input type="text"
+										ng-model="user.userProfile.gender" class="form-control">
+								</div>
+							</div>
+						</div>
+
+						<div class="clearfix"></div>
+					</div>
+				</div>
+
+				<div class="card">
+					<div class="card-header" data-background-color="green">
+						<h4 class="title">Address</h4>
+						<p class="category">Address Information</p>
+					</div>
+					<div class="card-content">
+						<div class="row">
+							<div class="col-md-5">
+								<div class="form-group label-floating">
+									<label class="control-label">Address Country</label> <input
+										type="text" class="form-control"
+										ng-model="user.userProfile.address.addresCountry">
+								</div>
+							</div>
+							<div class="col-md-3">
+								<div class="form-group label-floating">
+									<label class="control-label">Address Region</label> <input
+										type="text" class="form-control"
+										ng-model="user.userProfile.address.addressRegion">
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="form-group label-floating">
+									<label class="control-label">Address Locality</label> <input
+										type="text"
+										ng-model="user.userProfile.address.addressLocality"
+										class="form-control">
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-5">
+								<div class="form-group label-floating">
+									<label class="control-label">Postal Code</label> <input
+										type="text" class="form-control"
+										ng-model="user.userProfile.address.postalCode">
+								</div>
+							</div>
+
+							<div class="col-md-4">
+								<div class="form-group label-floating">
+									<label class="control-label">Address Street</label> <input
+										ng-model="user.userProfile.address.street"
+										class="form-control">
+								</div>
+							</div>
+						</div>
+						<div class="clearfix"></div>
+					</div>
+				</div>
+				<div class="card">
+					<div class="card-header" data-background-color="green">
+						<h4 class="title">Health Profile</h4>
+						<p class="category">Health Information</p>
+					</div>
+					<div class="card-content">
+						<div class="row">
+							<div class="col-md-12">
+								<div class="form-group label-floating">
+									<label class="control-label">Health State</label> <input
+										type="text" class="form-control"
+										ng-model="user.userProfile.healthProfile.healthstate">
+								</div>
+							</div>
+							<div class="col-md-12">
+								<label> Add Diseases </label>
+							</div>
+
+
+							<div class="col-md-5">
+								<div class="form-group label-floating">
+									<label class="control-label">ID</label> <input type="text"
+										ng-model="diseaseEdit.id" class="form-control">
+								</div>
+
+							</div>
+							<div class="col-md-3">
+								<div class="form-group label-floating">
+									<label class="control-label">Name</label> <input type="text"
+										class="form-control" ng-model="diseaseEdit.name">
+								</div>
+							</div>
+							<div class="col-md-3">
+								<button type="button" ng-click='addDiseases()' id="addDisease"
+									class="btn btn-primary pull-right">Add</button>
+							</div>
+							<div class="card">
+								<div class="card-header" data-background-color="orange">
+									<h4 class="title">Diseases</h4>
+									<p class="category">Diseases Information</p>
+								</div>
+								<div class="card-content table-responsive">
+									<table class="table">
+										<thead class="text-primary">
+											<th>Diseases Id</th>
+											<th>Diseases Information</th>
+										</thead>
+										<tbody>
+											<tr
+												ng-repeat="diseases in user.userProfile.healthProfile.diseases">
+												<td>
+													<p class="text-success">{{diseases.id}}</p>
+												</td>
+												<td>
+													<p class="text-muted">{{diseases.name}}</p>
+												</td>
+												<td>
+													<button type="button" ng-click='removeDiseases($index)'
+														id="removeDiseases" class="btn btn-primary pull-right">Remove</button>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+
+								</div>
+							</div>
+						</div>
+						<div class="clearfix"></div>
+					</div>
+				</div>
+				<button type="submit" id="submit" class="btn btn-primary pull-right">Update
+					Profile</button>
+			</form>
+		</div>
+	</div>
+</div>

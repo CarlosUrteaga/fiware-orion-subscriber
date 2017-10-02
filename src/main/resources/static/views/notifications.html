@@ -1,0 +1,25 @@
+<div class="card">
+	<div class="card-header" data-background-color="green">
+		<h4 class="title">Notifications</h4>
+		<p class="category">
+			You Have the next <a target="_blank"
+				href="https://fiware-orion.readthedocs.io/en/master/index.html">Notifications</a> from
+			the <a href="http://bootstrap-notify.remabledesigns.com/"
+				target="_blank">Orion Context Broker</a>
+		</p>
+	</div>
+	<div ng-controller="MainCtrl" class="card-content">
+		<div class="row">
+			<div class="col-md-6">
+				<h5>Notifications</h5>
+				<div ng-repeat="notification in data.response" class="alert alert-info alert-with-icon"
+					data-notify="container">
+					<button type="button" aria-hidden="true" class="close">×</button>
+					<i data-notify="icon" class="material-icons">add_alert</i> <span
+						data-notify="message">{{notification.text | json}}</span>
+				</div>
+			</div>
+		</div>
+		<br> <br>
+	</div>
+</div>

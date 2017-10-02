@@ -1,0 +1,31 @@
+<div ng-controller="MainCtrl" class="container-fluid">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header" data-background-color="green">
+					<h4 class="title">Orion Context Notifications</h4>
+					<p class="category">Show all orion context notifications</p>
+				</div>
+				<div class="card-content table-responsive">
+					<table class="table">
+						<thead class="text-primary">
+							<th>Mongo DB - ID</th>
+							<th>Notification Content</th>
+						</thead>
+						<tbody>
+							<tr ng-repeat="notification in data.response">
+								<td>
+									<p class="text-success">{{notification.id}}</p>
+								</td>
+								<td>
+								<p class="text-muted">{{notification.orionAlert | json}}</p>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

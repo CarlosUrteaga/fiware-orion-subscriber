@@ -1,0 +1,4 @@
+mx/infotec/dads/orion/model/Notification.class
+mx/infotec/dads/orion/repository/NotificationRepository.class
+mx/infotec/dads/orion/rest/NotificationController.class
+mx/infotec/dads/orion/MonitorApplication.class
